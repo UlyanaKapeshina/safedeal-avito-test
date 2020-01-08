@@ -20,9 +20,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 GET https://boiling-refuge-66454.herokuapp.com/images - получение списка фотографий.
 GET https://boiling-refuge-66454.herokuapp.com/images/:imageId - получения большого изображения и списка комментариев.
 POST https://boiling-refuge-66454.herokuapp.com/images/:imageId/comments - добавление комментария.
-​Дизайн можно найти тут.​
-
-Ответы на вопросы по заданию можно найти тут.​
+​Дизайн можно найти [тут](https://www.figma.com/file/3VP0QDK3kjdfbkj8TRrtsx/Test-task).​
 
 Мы оценим если:
 
