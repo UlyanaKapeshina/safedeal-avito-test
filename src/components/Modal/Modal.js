@@ -12,7 +12,7 @@ function Modal(props) {
   const [error, setError] = useState(null);
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
-  const [validateMessage, setValidateMessage] = useState("");
+  const [validateMessage, setErrorMessage] = useState("");
 
   const escFunction = useCallback(
     e => {
@@ -41,10 +41,10 @@ function Modal(props) {
   const onSubmit = e => {
     e.preventDefault();
     if (name.trim() === "" || comment.trim() === "") {
-      setValidateMessage("Заполните все поля");
+      setErrorMessage("Заполните все поля");
       return;
     }
-    setValidateMessage("");
+    setErrorMessage("");
     api.setComment(id, { name: name, comment: comment }).then(
       () => {
         setComments([
@@ -55,17 +55,17 @@ function Modal(props) {
         setName("");
       },
       error => {
-        setError(error);
+        setErrorMessage(error.message);
       }
     );
   };
   const onNameChange = e => {
     setName(e.currentTarget.value);
-    setValidateMessage("");
+    setErrorMessage("");
   };
   const onCommentChange = e => {
     setComment(e.currentTarget.value);
-    setValidateMessage("");
+    setErrorMessage("");
   };
 
   const commentsList = comments.map(it => (
@@ -77,7 +77,12 @@ function Modal(props) {
   if (!isLoaded) {
     return <Preloader className="photos_modal" />;
   } else if (error) {
-    return <ErrorMessage message={error.message} className="photos_modal" />;
+    return (
+      <div>
+        <ErrorMessage message={error.message} className="photos_modal" />
+        <div className="modal_shadow" onClick={props.handleClickClose}></div>
+      </div>
+    );
   } else {
     return (
       <div>
