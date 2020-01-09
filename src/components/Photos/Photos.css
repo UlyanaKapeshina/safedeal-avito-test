@@ -11,7 +11,9 @@
 }
 
 .photos_link {
-  display: block;
+  border: none;
+  padding: 0;
+  margin: 0;
   position: relative;
 }
 
@@ -35,10 +37,14 @@
   bottom: 0;
   opacity: 0;
 }
-
+.photos_link:focus:before,
+.photos_link:focus:after,
 .photos_link:hover:before,
 .photos_link:hover:after {
   opacity: 1;
+}
+.photos_link:active {
+  opacity: 0.6;
 }
 .photos_img {
   width: 280px;
