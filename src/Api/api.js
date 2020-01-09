@@ -13,7 +13,7 @@ export const api = {
   },
   setComment(id, comment) {
     return instance
-      .post(`/${id}/comments`, comment)
+      .post(`/${id}//comments`, comment)
       .then(response => response.data);
   }
 };
