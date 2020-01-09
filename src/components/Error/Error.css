@@ -1,0 +1,8 @@
+.error {
+  width: 100%;
+  display: flex;
+}
+.error_text {
+  width: 100%;
+  text-align: center;
+}
