@@ -40,13 +40,12 @@ class Gallery extends React.Component {
     const photosList = this.state.photos.map(it => {
       return (
         <li key={it.id} className="photos_items">
-          <a
-            href="#"
+          <button
             onClick={e => this.handleClickOpen(it.id, e)}
             className="photos_link"
           >
             <img className="photos_img" src={it.url} alt="фото" />
-          </a>
+          </button>
         </li>
       );
     });
